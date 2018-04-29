@@ -1,0 +1,17 @@
+{% extends 'CropManagement/base.html' %}
+{% load bootstrap3 %}
+{% block body_block %}
+<div class="container">
+<h1 class="jumbotron text-center bg-info text-white" >Add Reminder</h1>
+    <form method="post" >
+    {% csrf_token %}
+    {% bootstrap_form form %}
+        <div class="row">
+            <div class="col-6 text-right">
+            <input class="btn btn-primary" type="submit" value="Submit">
+            </div>
+    </form>
+
+        </div>
+
+{% endblock %}

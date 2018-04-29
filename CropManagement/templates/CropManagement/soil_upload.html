@@ -1,0 +1,18 @@
+{% extends 'CropManagement/base.html' %}
+
+{% load bootstrap3 %}
+{% block body_block %}
+<div class="container">
+{% if message %}
+    {{ message }}
+    {% endif %}
+<h1 class="jumbotron bg-info text-white">Upload Soil Report</h1>
+        <form method="post">
+            {% csrf_token %}
+            {% bootstrap_form form  %}
+            <input type="submit" value="Upload" class="btn btn-primary">
+        </form>
+</div>
+
+
+{% endblock %}

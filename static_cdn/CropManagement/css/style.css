@@ -1,0 +1,58 @@
+body{
+  margin-top: 105px;
+}
+
+
+.navbar{
+  opacity: 0.9;
+  background: #fff;
+  box-shadow: 2px 2px 5px #229e37;
+
+}
+.nav-item{
+  padding-right: 10px;
+
+  font-size: 1.2rem;
+}
+
+
+#showcase{
+  position: relative;
+
+  height: auto;
+  min-height: 600px;
+
+  background-image: url('../img/backsec1.jpg');
+}
+
+.primary-overlay{
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+
+    background-color: rgba(34, 158, 55, 0.4);
+}
+.sec{
+  height: auto;
+}
+
+.cus{
+  margin-top: -50px;
+
+}
+
+.featurePara{
+  font-size: 18px;
+}
+.card{
+  height: 450px;
+}
+.card:hover{
+  color: #fff;
+  background-color: #50d867;
+  height: 450px;
+
+}

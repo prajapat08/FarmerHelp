@@ -1,0 +1,21 @@
+{% extends 'CropManagement/base.html' %}
+{% load bootstrap3 %}
+{% block body_block %}
+    <div class="container mt-5">
+    <h1 class="jumbotron bg-info text-white">Edit your Farm Details</h1>
+<form method="post">
+    {% csrf_token %}
+    {%   bootstrap_form form %}
+    {{ form.media}}
+    <div class="row">
+    <div class="col-6">
+    <input class="btn btn-warning" style="margin-left: 90%;" type="submit" value="Edit">
+</div>
+</form>
+    <div class="col-6">
+
+        <a class="btn btn-warning" href="{% url 'CropManagement:farm_list' %}">Cancel</a>
+</div>
+    </div>
+    </div>
+{% endblock %}

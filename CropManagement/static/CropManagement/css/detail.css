@@ -1,0 +1,27 @@
+#showcase{
+  position: relative;
+
+  height: auto;
+  min-height: 400px;
+
+}
+.navbar{
+  opacity: 0.8;
+  background: #fff;
+  box-shadow: 2px 2px 5px #229e37;
+
+}
+.primary-overlay{
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.weather-card{
+    margin: 0%;
+}

@@ -1,0 +1,25 @@
+{% extends 'CropManagement/links.html'%}
+  {% block body_block %}
+      {% load bootstrap3 %}
+      {% load static%}
+
+       {% include 'material/includes/material_css.html' %}
+       {% include 'material/includes/material_js.html' %}
+{% block script_block %} <script src="{% static 'material/js/jquery.js' %}"></script>{% endblock %}
+   {% load material_form %}
+      <div class="container">
+
+  <h1 class="jumbotron bg-info text-white   ">Register</h1>
+  {% if is_register %}
+
+      <p>You are Already Register</p>
+      <a href="{% url 'ecommerce:login' %}">Login</a>
+        {% else %}
+      <form method="post">
+          {% csrf_token %}
+          {% form form=form1 %}{% endform %}
+    <center><input class="btn btn-primary" type="submit" value="Register"></center>
+  </form>
+  {% endif %}
+</div>
+  {% endblock %}

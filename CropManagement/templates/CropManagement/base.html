@@ -1,0 +1,19 @@
+{% extends 'CropManagement/links.html' %}
+{% block nav_block %}
+<nav class="navbar navbar-toggleable-md navbar-inverse bg-success navbar-light fixed-top">
+      <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <a class="navbar-brand" href="{% url 'CropManagement:home' %}">Dashboard</a>
+
+      <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+          {% block navigation_block %}{% endblock %}
+          <span class="nav-item">
+            <a class="nav-link btn btn-success" href="{% url 'CropManagement:logout' %}">Logout<span class="sr-only">(current)</span></a>
+           </span>
+      </div>
+    </nav>
+{% endblock %}
+{% block body_block %}
+{% endblock %}
+</body>

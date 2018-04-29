@@ -1,0 +1,205 @@
+{% extends 'CropManagement/links.html' %}
+{% load static %}
+{% block script_block %}<link href="{% static 'CropManagement/css/style.css'%}" rel="stylesheet">
+<script src="{% static 'CropManagement/js/navbar-fixed.js'%}" type="text/javascript"></script> {% endblock %}
+{% block body_block %}
+  <nav class="navbar navbar-toggleable-md navbar-light fixed-top py-4">
+    <div class="container">
+      <button class="navbar-toggler navbar-toggler-right"><span class="navbar-toggler-icon" data-toggle="collapse" data-target="#navbarNav"></span></button>
+      <a href="#" class="navbar-brand">
+      <img src="{% static 'CropManagement/img/mlogo.jpg' %}" width="50" height="50" alt="Logo">
+      <h3 class="d-inline align-middle text-success">Crop</h3><h3 class="d-inline align-middle"> Management </h3><h3 class="d-inline align-middle text-success">System</h3>
+      </a>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a href="#home" class="nav-link">Home</a>
+          </li>
+          <li class="nav-item">
+            <a href="#home" class="nav-link">About</a>
+          </li>
+          <li class="nav-item">
+            <a href="#feature" class="nav-link">Features</a>
+          </li>
+          <li class="nav-item">
+            <a href="#home" class="nav-link">Contact us</a>
+          </li>
+          <li class="nav-item">
+            <a href="{% url 'CropManagement:login' %}" class="nav-link">Log In</a>
+          </li>
+          <li class="nav-item">
+            <a href="{% url 'CropManagement:register' %}" class="nav-link">Register</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+
+  <!--- Section -->
+  <section id="showcase" class="py-5">
+    <div class="primary-overlay text-white">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-6 col-sm-12 text-center">
+            <h1 class="display-3 mt-5 pt-5">
+                Smart Agriculture made farmer life easy...
+              </h1>
+            <p class="lead">
+              Easily Maintainable, More Features .....
+            </p>
+            <a href="#" class="btn btn-outline-secondary btn-lg text-white">
+                <i class="fa fa-arrow-right"></i>
+                Read More
+              </a>
+          </div>
+          <div class="col-lg-6 col-sm-12">
+                     </div>
+        </div>
+      </div>
+    </div>
+
+  </section>
+
+
+  <!--- feature section -->
+
+  <section id="feature" class="my-5 text-center">
+
+    <div class="container">
+
+      <div class="row">
+
+        <div class="col">
+
+          <div class="info-header mb-5">
+
+            <h1 class="text-primary pb-3">
+
+              Features
+            </h1>
+            <p class="lead pb-3">
+
+              Following are the few features of are Website
+            </p>
+          </div>
+
+          <div class="row">
+
+            <div class="col-lg-4 col-md-6 col-sm-12">
+
+              <div class="card mt-5">
+
+                <div class="card-block">
+
+                  <img src="{% static 'CropManagement/img/fea1.jpg' %}" alt="Weather" class="img-fluid rounded-circle mb-3 cus w-50">
+                  <h3 class="text-muted">Weather Report</h3>
+                  <p class="lead pt-3 featurePara">Provide weather details based on location of farm so the farmer can easily keep track of rain</p>
+                </div>
+              </div>
+
+            </div>
+            <div class="col-lg-4 col-md-6 col-sm-12">
+
+              <div class="card mt-5">
+
+                <div class="card-block">
+
+                  <img src="{% static 'CropManagement/img/fea2.png' %}" alt="Weather" class="img-fluid rounded-circle mb-3 cus w-50">
+                  <h3 class="text-muted">Mobile Remainder System</h3>
+                  <p class="lead pt-3 featurePara">To remind you when to water,kill weed plant, notify </p>
+                </div>
+              </div>
+
+            </div>
+            <div class="col-lg-4 col-md-6 col-sm-12">
+
+              <div class="card mt-5">
+
+                <div class="card-block">
+
+                  <img src="{% static 'CropManagement/img/fea3.jpg' %}" alt="Weather" class="img-fluid rounded-circle mb-3 cus w-50">
+                  <h3 class="text-muted">Soil Report</h3>
+                  <p class="lead pt-3 featurePara">Keep track of your soil health</p>
+                </div>
+              </div>
+
+            </div>
+            <div class="col-lg-4 col-md-6 col-sm-12">
+
+              <div class="card mt-5">
+
+                <div class="card-block">
+
+                  <img src="{% static 'CropManagement/img/fea6.jpg' %}" alt="Weather" class="img-fluid rounded-circle mb-3 cus w-50">
+                  <h3 class="text-muted">Farm Management</h3>
+                  <p class="lead pt-3 featurePara">Easily manage your farms</p>
+                </div>
+              </div>
+
+            </div>
+            <div class="col-lg-4 col-md-6 col-sm-12">
+
+              <div class="card mt-5">
+
+                <div class="card-block">
+
+                  <img src="{% static 'CropManagement/img/fea5.jpg' %}" alt="Weather" class="img-fluid rounded-circle mb-3 cus w-50">
+                  <h3 class="text-muted">Crop Prediction</h3>
+                  <p class="lead pt-3 featurePara">Based on weather, soil and nearby farmer crop it will predict you crops that are most suitable to grow this season</p>
+                </div>
+              </div>
+
+            </div>
+            <div class="col-lg-4 col-md-6 col-sm-12">
+
+              <div class="card mt-5">
+
+                <div class="card-block">
+
+                  <img src="{% static 'CropManagement/img/fea7.png' %}" alt="Weather" class="img-fluid rounded-circle mb-3 cus w-50">
+                  <h3 class="text-muted">Market Price</h3>
+                  <p class="lead pt-3 featurePara">Based on location of farm it will give the prevailing prices of different fruits and vegetable in the nearby market</p>
+                </div>
+              </div>
+
+            </div>
+
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- Contact us -->
+
+
+  <section id="contact" class="bg-faded py-5">
+
+    <div class="container">
+
+      <div class="row text-center">
+
+        <div class="col-lg-9">
+
+          <h3 class="text-primary">Get In Touch</h3>
+          <p class="lead ">We are ready to help you in any situation</p>
+          <form>
+          <div class="form-group">
+            <label for="formGroupExampleInput">Name</label>
+            <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Name">
+          </div>
+          <div class="form-group">
+            <label for="formGroupExampleInput2">Message</label>
+            <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Message">
+          </div>
+        </form>
+
+        </div>
+      </div>
+    </div>
+  </section>
+{% endblock %}
+

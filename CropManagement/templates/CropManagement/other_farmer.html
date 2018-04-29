@@ -1,0 +1,77 @@
+{% extends 'CropManagement/base.html' %}
+{% load static %}
+{% block body_block %}
+    <div class="container">
+    {% if other_farmer %}
+        <h1 class="jumbotron bg-info text-white m-5">These are the farmers in your region {{ other_farmer.0.location.region}}</h1>
+{% for farm in other_farmer%}
+    <div class="row">
+    <div class="col-12 text-center">
+    <p class="lead m-5"> {{ farm.user.first_name }} {{ farm.user.last_name }} has
+    {{ farm.farm_name }} in
+    {{ farm.farm_area }} hectare <br>
+   at {{ farm.location.name }}
+    {% if farm.crop %}
+        growing <p class="text-info">{{ farm.crop }}</p>
+        {% else %}
+        Not specified</p>
+    {% endif %}
+    <br>
+    <hr>
+    </div>
+    </div>
+        {% endfor %}
+
+        <div class="container">
+
+  <h3>You can decide </h3>
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th>Crop</th>
+        <th>Number of farmer growing</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Wheat</td>
+        <td>{{ data_crop_wheat }}</td>
+
+      </tr>
+      <tr>
+        <td>Rice</td>
+        <td>{{ data_crop_rice }}</td>
+      </tr>
+      <tr>
+        <td>Maize</td>
+        <td>{{ data_crop_maize }}</td>
+
+      </tr>
+     <tr>
+        <td>Sunflower</td>
+        <td>{{ data_crop_sunflower }}</td>
+
+      </tr>
+     <tr>
+        <td>Soyabean</td>
+        <td>{{ data_crop_soyabean }}</td>
+
+      </tr>
+     <tr>
+        <td>Jute</td>
+        <td>{{ data_crop_jute }}</td>
+
+      </tr>
+    </tbody>
+  </table>
+</div>
+        {% else %}
+        <div class="container">
+        <h1 class="mt-5">No farmers are available in your state</h1>
+        <a class="btn btn-ouline secondary" href="{% url 'CropManagement:farm_detail' pk=pk%}">Go back</a>
+        </div>
+    {% endif %}
+
+    </div>
+
+{% endblock %}

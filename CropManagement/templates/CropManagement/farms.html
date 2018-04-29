@@ -1,0 +1,41 @@
+{% extends 'CropManagement/base.html' %}
+{% block script_block %}
+{% endblock %}
+{% block body_block %}
+    <div class="container">
+{% if farm_list %}
+{% for farm in farm_list %}
+    <div class="card m-5 bg-info text-white ">
+  <div class="card-header bg-inverse text-white">
+      <div class="row">
+          <div class="col-6">
+    {{ farm.farm_name }}
+              </div>
+          <div class="col-6">
+      <a class="btn btn-primary" style="margin-left: 60%;" href="{% url 'CropManagement:farm_detail' farm.id%}">View Details</a>
+          </div>
+  </div>
+      </div>
+  <div class="card-block text-white">
+    <h4 class="card-title ">{{ farm.location }}</h4>
+    <p class="card-text">{{ farm.crop }}</p>
+
+<div class="row">
+    <div class="col-6">
+   <a class="btn btn-warning" style="margin-left: 90%;" href="{% url 'CropManagement:farm_edit' farm.id%}">Edit</a>
+    </div>
+    <div class="col-6">
+        <a class="btn btn-warning" href="{% url 'CropManagement:farm_delete' farm.id%}">Delete</a>
+    </div>
+  </div>
+  </div>
+</div>
+
+
+{% endfor %}
+{% else %}
+    <a href="{% url 'CropManagement:add_farm' %}">Add</a>
+{% endif %}
+    </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,35 @@
+{% extends 'CropManagement/base.html' %}
+{% load static %}
+{% block script_block %}
+    <link href="{% static 'weather-icons-master/css/weather-icons-wind.min.css'%}" rel="stylesheet">
+    <link href="{% static 'weather-icons-master/css/weather-icons.min.css' %}" rel="stylesheet">
+{% endblock %}
+{% block body_block %}
+
+        <div class="container mt-5" id="Weather">
+        <div class="row">
+            <h2 class="mt-5">Based on Rainfall and Temperature Prediction for the upcoming months you should grow the following crops:</h2>
+        <div class="row">
+
+                    {% for c in crop %}
+<div class="col-4">
+                        <div class="card">
+                            <img class="card-img-top responsive-img img-thumbnail " style="width: 100%; height: 200px;" {% if c.name.crop_name == 'Wheat' %} src="{% static 'CropManagement/img/wheat.jpg' %}
+    "{% endif %} {% if c.name.crop_name == 'Rice' %} src="{% static 'CropManagement/img/rice.jpg' %}
+    "{% endif %} alt="Card image cap">
+                                 <div class="card-block">
+                            <h4 class="card-title">{{ c.name }}</h4>
+                             <p class="card-text"><i class="wi wi-thermometer"></i>  - {{ c.max_temperature }}&deg;C   <i class="wi wi-thermometer-exterior" style="margin-left: 52%;"></i> - {{ c.min_temperature }}&deg;C</p>
+                                     <p class="card-text"><i class="wi wi-rain"></i>  -{{ c.max_rainfall }} mm <i class="wi wi-sleet " style="margin-left: 32%;"></i> -{{ c.min_rainfall }} mm</p>
+                                <a href="#" class="btn btn-primary">Go somewhere</a>
+  </div>
+</div>
+                        </div>
+                    {% endfor %}
+
+
+        </div>
+
+        </div>
+    </div>
+{% endblock %}

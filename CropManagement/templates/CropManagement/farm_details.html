@@ -1,0 +1,102 @@
+{% extends 'CropManagement/base.html' %}
+{% load static %}
+{% block script_block %}
+    <link href="{% static 'CropManagement/css/detail.css' %}" rel="stylesheet">
+{% endblock %}
+{% block navigation_block %}
+   <ul class="navbar-nav mr-auto">
+   <li class="navbar-item"><a href="{% url 'CropManagement:farm_list' %}" class="nav-link text-white">View Farms</a></li>
+     <div class="dropdown">
+  <button class="btn btn-success dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    Crop Predict
+  </button>
+  <div class="dropdown-menu bg-success " aria-labelledby="dropdownMenuButton">
+    <a class="dropdown-item text-white" href="{% url 'CropManagement:predictcrops' pk=farm_detail.pk%}">Weather</a>
+    <a class="dropdown-item text-white" href="{% url 'CropManagement:soil_predict' pk=farm_detail.pk%}">Soil Report</a>
+    <a class="dropdown-item text-white"  href="{% url 'CropManagement:other_farmer' pk=farm_detail.pk%}">Other Farmer</a>
+  </div>
+</div>
+   <li class="navbar-item"><a href="{% url 'CropManagement:create_reminder' pk=farm_detail.pk%}" class="nav-link text-white">Remainder</a></li>
+   <li class="navbar-item"><a href="#" class="nav-link text-white">What's Happening Near by</a></li>
+    </ul>
+{% endblock %}
+{% block body_block %}
+    <section id="showcase" class="py-5" style="background-image: url({% static 'CropManagement/img/backsec1.jpg'%});">
+    <div class="primary-overlay text-white">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12 col-sm-12 text-center">
+            <h1 class="display-4 mt-5 pt-5 mb-5">
+                WELCOME TO YOUR {{ farm_detail.farm_name|upper }}
+              </h1>
+            <p class="lead">
+                <i class="fa fa-map-marker" aria-hidden="true"></i> {{ farm_detail.location }}
+            </p>
+              <h3 class="display-5 mt-1 pt-1">
+                  <i class="fa fa-thermometer-half" aria-hidden="true"></i>
+
+                {{ temperature }}&degC
+                  <i class="fa fa-tint pl-3" aria-hidden="true"></i>
+                  {{ status }}
+              </h3>
+              <p class="lead"><i class="fa fa-leaf" aria-hidden="true"></i>{% if farm_detail.crop %}
+    {{ farm_detail.crop }}
+    <a href="{% url 'CropManagement:crop_edit' pk=farm_detail.id%}" class="btn btn-outline-secondary ml-2" >Edit</a>
+    {% else %}
+    <a href="{% url 'CropManagement:crop_edit' pk=farm_detail.id%}" class="btn btn-outline-secondary ml-2">Add</a>
+{% endif %}
+</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </section>
+<section id="weather-section" class="mt-5">
+<h2 class="text-center mb-5">Weather for the next seven days</h2>
+    <div class="container bg-inverse">
+    <div class="row">
+        {% for date,temp,statu in zipped %}
+            {% if forloop.counter0 is not 0 %}
+    <div class="col-2">
+        <div class="card bg-inverse weather-card text-white p-0 m-0">
+      <div class="card-block">
+          <p class="card-title"><b>{{ date|date:"D" }}</b></p>
+          <hr>
+        <p class="card-text"><i class="fa fa-calendar mr-2" aria-hidden="true"></i>{{ date|date }}</p>
+        <p class="card-text"> <i class="fa fa-thermometer-half mr-2" aria-hidden="true"></i>{{ temp }}&degC</p>
+        <p class="card-text"><i class="fa fa-tint mr-2" aria-hidden="true"></i>{{ statu}}</p>
+      </div>
+    </div>
+    </div>
+            {% endif %}
+{% endfor %}
+    </div>
+</div>
+
+
+
+
+
+
+</section>
+    <section id="soil-report">
+
+<div class="container mt-5">
+    <h3 class="text-center">Your Previous Soil report</h3>
+    {% for report in farm_detail.that_farm.all %}
+
+        <div class="card">
+         <div class="card-block">
+        <h3 class="card-title">{{ report.soil_report }}</h3>
+        <p class="card-text">Uploaded on {{ report.uploaded_date }}</p>
+        <a href="#" class="btn btn-primary">Edit</a>
+             <a href="#" class="btn btn-primary">Delete</a>
+      </div>
+    </div>
+    {% endfor %}
+<center><a class="btn btn-primary m-5" href="{% url 'CropManagement:soil_upload' farm_detail.pk%}">Upload Soil Report</a></center>
+    </div>
+</section>
+{% endblock %}
+

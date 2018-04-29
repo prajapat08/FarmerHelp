@@ -1,0 +1,24 @@
+{% extends 'CropManagement/base.html' %}
+{% load static %}
+{% load bootstrap3 %}
+{% block body_block %}
+
+    <div class="container">
+        <h1 class="jumbotron m-5 bg-info text-white">Add farm</h1>
+    <div class="row">
+        {% if message %}
+    <p>This farm filed Alredy exist</p>
+{% endif %}
+<form method="post">
+    {% csrf_token %}
+     {% bootstrap_form form  %}
+    {{ form.media }}
+
+
+<input type="submit" class="btn btn-outline-success" value="Add Farm">
+    <a class="btn btn-outline-success" href="{% url 'CropManagement:home' %}">Cancel</a>
+</form>
+
+    </div>
+    </div>
+{% endblock %}
